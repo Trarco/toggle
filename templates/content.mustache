@@ -1,0 +1,37 @@
+{{#blocktitle}}
+<details class="block-toggle">
+  <summary class="block-toggle-main-title">{{{blocktitle}}}</summary>
+  {{/blocktitle}}
+
+  {{#blockcontent}}
+  <div class="block-toggle-content">
+    <div class="block-toggle-main-content">
+      {{{blockcontent}}}
+    </div>
+    {{/blockcontent}}
+
+    <div class="block-toggle-part-container">
+      {{#parts}}
+      <div class="block-toggle-part-item">
+        <div class="block-toggle-part-title">{{{title}}}</div>
+        {{#subtitle}}<div class="block-toggle-part-subtitle">{{{subtitle}}}</div>{{/subtitle}}
+
+        <div class="block-toggle-part-content">
+          <ol>
+            {{#contentitems}}
+            <li>
+              {{{text}}}
+              {{#subitems}}
+              <ol class="sub-list">
+                {{#.}}<li>{{.}}</li>{{/.}}
+              </ol>
+              {{/subitems}}
+            </li>
+            {{/contentitems}}
+          </ol>
+        </div>
+      </div>
+      {{/parts}}
+    </div>
+  </div>
+</details>

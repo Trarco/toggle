@@ -1,0 +1,36 @@
+.block_toggle .card-title {
+    display: none;
+}
+
+.block-toggle-main-title {
+    color: var(--custom-primary-color);
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.block-toggle-content {
+    background-color: #d1d5d6;
+    padding: 1em .5em;
+}
+
+
+.block-toggle-part-title,
+.block-toggle-part-subtitle {
+    font-weight: 700;
+}
+
+
+.block-toggle-part-container {
+    column-count: 2;
+}
+
+.block-toggle-part-item {
+    break-inside: avoid;
+}
+
+.block-toggle-part-content ol{
+    padding-left: 2em;
+}
+.block-toggle-part-content .sub-list {
+    list-style-type: lower-latin;
+}
