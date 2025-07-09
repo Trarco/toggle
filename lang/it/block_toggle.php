@@ -1,5 +1,7 @@
 <?php
 
+$string['pluginname'] = 'Toggle';
+
 $string['blocktitle'] = 'Titolo del blocco';
 $string['blockcontent'] = 'Contenuto generale';
 $string['parttitle'] = 'Titolo della parte';
