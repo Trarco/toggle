@@ -1,4 +1,7 @@
 <?php
+
+defined('MOODLE_INTERNAL') || die();
+
 class block_toggle extends block_base
 {
     public function init()
@@ -63,7 +66,6 @@ class block_toggle extends block_base
                         $subitem = trim(ltrim($trimmed, '-'));
                         $currentSublist[] = $subitem;
                     } else {
-                        // Se stavamo costruendo una sub-lista, la salviamo prima di creare un nuovo item
                         if (!empty($currentSublist) && $currentMain !== null) {
                             $parsedContent[$currentMain]['subitems'][] = $currentSublist;
                             $currentSublist = [];
@@ -73,7 +75,7 @@ class block_toggle extends block_base
                         $currentMain = count($parsedContent);
                         $parsedContent[$currentMain] = [
                             'text' => $trimmed,
-                            'subitems' => []  // array di array
+                            'subitems' => []
                         ];
                     }
                 }
@@ -83,11 +85,15 @@ class block_toggle extends block_base
                     $parsedContent[$currentMain]['subitems'][] = $currentSublist;
                 }
 
-                $parts[] = (object)[
-                    'title' => $title,
-                    'subtitle' => $subtitle,
-                    'contentitems' => array_values($parsedContent)
-                ];
+                $hasContent = !empty($title) || !empty($subtitle) || !empty($parsedContent);
+
+                if ($hasContent) {
+                    $parts[] = (object)[
+                        'title' => $title,
+                        'subtitle' => $subtitle,
+                        'contentitems' => array_values($parsedContent)
+                    ];
+                }
             }
         }
 
